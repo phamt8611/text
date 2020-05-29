@@ -6,7 +6,7 @@ from aiohttp import web
 # fanpage token
 PAGE_ACCESS_TOKEN = 'EAAIvgQKvT4ABACCjMvSV1lF9ZCRZCmVlQVZAIOADhKVpSjQPFSClGvEuVEChL8HWMqG6EqYZCrHnWmlylZCzpZClYcE1omnd8hiHZATNXXxGExAHF1qjtxEjPBhBaUaTgLmcnosnD8VNncZBS3cXOOfITzvciid0uYW5YNKnluiXn92kA6y3AA7ZBo'
 # verify token
-VERIFY_TOKEN = ''
+VERIFY_TOKEN = 'Tadashiringo123'
 
 class BotControl(web.View):
 
