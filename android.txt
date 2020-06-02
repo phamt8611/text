@@ -1,0 +1,5 @@
+title=<RingoGamer>
+
+author=<Tadashi Ringo>
+
+orientation=<portrait|landscape>
