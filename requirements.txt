@@ -5,7 +5,7 @@ click==6.6
 
 Flask==1.0.0
 
-gunicorn==19.6.0
+
 
 itsdangerous==0.24
 
