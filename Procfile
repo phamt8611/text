@@ -1,2 +1,2 @@
-web: gunicorn app:app --worker-class aiohttp.worker.GunicornWebWorker
-
+ 
+web: gunicorn app:app --log-file=-
