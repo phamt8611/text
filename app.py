@@ -4,6 +4,6 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Chào mừng bạn đến với YuriNovel 2020"
-@app.route()
-def words("/test"):
+@app.route("/test")
+def words():
     return "YuriNovel cung cấp tiểu thuyết bách hợp miễn phí"
