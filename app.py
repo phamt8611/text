@@ -7,3 +7,6 @@ def hello():
 @app.route("/test")
 def words():
     return "YuriNovel cung cấp tiểu thuyết bách hợp miễn phí"
+
+if __name__=="__main__":
+    app.run()
