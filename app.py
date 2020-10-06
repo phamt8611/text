@@ -6,16 +6,18 @@ app = Flask(__name__)
 
 
 Data = {
-        "Title":"YuriNovel"
-        "Content":"Trang web cung cấp tiểu thuyết thể loại bách hợp miễn phí, được tạo bởi Tadashi Ringo vào năm 2020"
-        "Author":"Tadashi Ringo"
+        "Title":"YuriNovel",
+        "Content":"Nền tảng văn học mạng, cung cấp truyện bách hợp miễn phí, gồm các thể loại đồng nhân, đô thị, nhị thứ nguyên, tam thứ nguyên",
+        "Author":"Tadashi Ringo",
+        "Charset":"UTF-8",
+        "Keywords":"truyện bách hợp, truyện yuri, Yuri, Novel, Tadashi Ringo, Lesbian"
         }
 
 
 
 @app.route("/")
 def index():
-    return render_template("index.html",Title=Data['Title'])
+    return render_template("index.html",Title=Data['Title'],Description=Data['Content'],Keywords=Data['Keywords'],Charset=Data['Charset'],Author=Data['Author'])
 
 
 
