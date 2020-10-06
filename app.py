@@ -1,11 +1,20 @@
-from flask import Flask
+from flask import Flask, render_template
+
+
 app = Flask(__name__)
 
-YuriNovel = "YuriNovel cung cấp tiểu thuyết bách hợp miễn phí, được tạo ra bởi Tadashi Ringo"
+
+
+Data = {
+        "Title":"YuriNovel"
+        "Content":"Trang web cung cấp tiểu thuyết thể loại bách hợp miễn phí, được tạo bởi Tadashi Ringo vào năm 2020"
+        }
+
+
 
 @app.route("/")
-def hello():
-    return YuriNovel
+def index():
+    return render_template("index.html",Title=Data['Title'])
 
 
 
