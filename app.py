@@ -1,11 +1,11 @@
 from flask import Flask
 app = Flask(__name__)
 
-
+YuriNovel = "YuriNovel cung cấp tiểu thuyết bách hợp miễn phí, được tạo ra bởi Tadashi Ringo"
 
 @app.route("/")
 def hello():
-    return "Chào mừng bạn đến với YuriNovel 1"
+    return YuriNovel
 
 
 
