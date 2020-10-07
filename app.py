@@ -6,11 +6,6 @@ app = Flask(__name__)
 
 
 Data = {
-        "Title":"YuriNovel",
-        "Content":"Nền tảng văn học mạng, cung cấp truyện bách hợp miễn phí, gồm các thể loại đồng nhân, đô thị, nhị thứ nguyên, tam thứ nguyên",
-        "Author":"Tadashi Ringo",
-        "Charset":"UTF-8",
-        "Keywords":"truyện bách hợp, truyện yuri, Yuri, Novel, Tadashi Ringo, Lesbian",
         "Color":{
             "Title":"color:red"
             },
@@ -26,11 +21,6 @@ def index():
     return render_template(
             "index.html",
             title='Trang Chủ',
-            Title=Data['Title'],
-            Description=Data['Content'],
-            Keywords=Data['Keywords'],
-            Charset=Data['Charset'],
-            Author=Data['Author'],
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
@@ -38,11 +28,6 @@ def index():
 def find():
     return render_template("find.html",
             title='Tìm Kiếm',
-            Title=Data['Title'],
-            Description=Data['Content'],
-            Keywords=Data['Keywords'],
-            Charset=Data['Charset'],
-            Author=Data['Author'],
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
@@ -50,11 +35,6 @@ def find():
 def forum():
     return render_template("forum.html",
             title='Tìm Kiếm',
-            Title=Data['Title'],
-            Description=Data['Content'],
-            Keywords=Data['Keywords'],
-            Charset=Data['Charset'],
-            Author=Data['Author'],
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
@@ -62,11 +42,6 @@ def forum():
 def lienhe():
     return render_template("lienhe.html",
             title='Liên Hệ',
-            Title=Data['Title'],
-            Description=Data['Content'],
-            Keywords=Data['Keywords'],
-            Charset=Data['Charset'],
-            Author=Data['Author'],
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
@@ -74,11 +49,6 @@ def lienhe():
 def donate():
     return render_template("donate.html",
             title='Donate',
-            Title=Data['Title'],
-            Description=Data['Content'],
-            Keywords=Data['Keywords'],
-            Charset=Data['Charset'],
-            Author=Data['Author'],
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
