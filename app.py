@@ -34,5 +34,17 @@ def index():
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
+@app.route("/find")
+def find():
+    return render_template("find.html",
+            title='Tìm Kiếm',
+            Title=Data['Title'],
+            Description=Data['Content'],
+            Keywords=Data['Keywords'],
+            Charset=Data['Charset'],
+            Author=Data['Author'],
+            ColorTitle=Data['Color']['Title'],
+            StyleMenu=Data['Styles']['Menu']
+            )
 if __name__=="__main__":
     app.run()
