@@ -46,5 +46,41 @@ def find():
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
+@app.route("/forum")
+def forum():
+    return render_template("forum.html",
+            title='Tìm Kiếm',
+            Title=Data['Title'],
+            Description=Data['Content'],
+            Keywords=Data['Keywords'],
+            Charset=Data['Charset'],
+            Author=Data['Author'],
+            ColorTitle=Data['Color']['Title'],
+            StyleMenu=Data['Styles']['Menu']
+            )
+@app.route("/lienhe")
+def lienhe():
+    return render_template("lienhe.html",
+            title='Liên Hệ',
+            Title=Data['Title'],
+            Description=Data['Content'],
+            Keywords=Data['Keywords'],
+            Charset=Data['Charset'],
+            Author=Data['Author'],
+            ColorTitle=Data['Color']['Title'],
+            StyleMenu=Data['Styles']['Menu']
+            )
+@app.route("/donate")
+def donate():
+    return render_template("donate.html",
+            title='Donate',
+            Title=Data['Title'],
+            Description=Data['Content'],
+            Keywords=Data['Keywords'],
+            Charset=Data['Charset'],
+            Author=Data['Author'],
+            ColorTitle=Data['Color']['Title'],
+            StyleMenu=Data['Styles']['Menu']
+            )
 if __name__=="__main__":
     app.run()
