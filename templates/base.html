@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+	<head>
+		<meta charset="{{Charset}}">
+		<meta name="keywords" content="{{Keywords}}">
+		<meta name="description" content="{{Description}}">
+		<meta name="author" content="{{Author}}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+body	{background-color: powderblue;}
+h1	{color: red;}
+p	{color: blue;}
+		</style>
+		{% if title %}
+		<title>{{title}} - {{Title}}</title>
+		{% else %}
+		<title>Welcome to {{Title}}</title>
+		{% endif %}
+	</head>
+
+
+	<body>
+		<!--Sơ lược giới thiệu về trang web-->
+		<h1>{{Title}}</h1>
+		<p>{{Description}}</p>
+
+		<hr>
+
+
+
+		<!--Thanh Menu-->
+
+		<div class="bg-dark" style="box-shadow: 0 16px 16px -16px black;overflow: hidden;overflow-x:auto;height: 40px;position: relative;">
+			<div id="naviga" class="container" style="color: #eeeeee !important;font-weight: 600;white-space: nowrap;">
+				<a href="/" style="{{StyleMenu}}"><i class="fas fa-home"></i> Trang chủ</a>
+				<a href="/" style="{{StyleMenu}}">Tìm Truyện</a>
+				<a hidden="" href="/" style="{{StyleMenu}}">Diễn Đàn</a>
+				<a href="/" style="{{StyleMenu}}">Liên hệ</a>
+				<a href="/" style="{{StyleMenu}}">Donate</a>
+			</div>
+		</div>
+		
+		<hr>
+        {% block content %}{% endblock %}
+	</body>
+
+
+
+
+</html>

@@ -13,6 +13,9 @@ Data = {
         "Keywords":"truyện bách hợp, truyện yuri, Yuri, Novel, Tadashi Ringo, Lesbian",
         "Color":{
             "Title":"color:red"
+            },
+        "Styles":{
+            "Menu":"margin: 6px;padding: 2px;display: inline-block;color: red"
             }
         }
 
@@ -22,15 +25,14 @@ Data = {
 def index():
     return render_template(
             "index.html",
+            title='Trang Chủ',
             Title=Data['Title'],
             Description=Data['Content'],
             Keywords=Data['Keywords'],
             Charset=Data['Charset'],
             Author=Data['Author'],
-            ColorTitle=Data['Color']['Title']
+            ColorTitle=Data['Color']['Title'],
+            StyleMenu=Data['Styles']['Menu']
             )
-
-
-
 if __name__=="__main__":
     app.run()
