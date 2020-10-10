@@ -24,33 +24,3 @@ def index():
             ColorTitle=Data['Color']['Title'],
             StyleMenu=Data['Styles']['Menu']
             )
-@app.route("/find")
-def find():
-    return render_template("find.html",
-            title='Tìm Kiếm',
-            ColorTitle=Data['Color']['Title'],
-            StyleMenu=Data['Styles']['Menu']
-            )
-@app.route("/forum")
-def forum():
-    return render_template("forum.html",
-            title='Tìm Kiếm',
-            ColorTitle=Data['Color']['Title'],
-            StyleMenu=Data['Styles']['Menu']
-            )
-@app.route("/lienhe")
-def lienhe():
-    return render_template("lienhe.html",
-            title='Liên Hệ',
-            ColorTitle=Data['Color']['Title'],
-            StyleMenu=Data['Styles']['Menu']
-            )
-@app.route("/donate")
-def donate():
-    return render_template("donate.html",
-            title='Donate',
-            ColorTitle=Data['Color']['Title'],
-            StyleMenu=Data['Styles']['Menu']
-            )
-if __name__=="__main__":
-    app.run()
