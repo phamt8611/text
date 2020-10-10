@@ -1,2 +1,2 @@
 # Procfile
-web: gunicorn app:main --log-file -
+web: gunicorn main:main --log-file -
