@@ -8,12 +8,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- CSS only -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-		{% if title %}
-		<title>{{title}} - YuriNovel</title>
-		{% else %}
-		<title>Welcome to YuriNovel</title>
-		{% endif %}
+		<title>{% block title %}{% endblock %} - YuriNovel</title>
 	</head>
 
 
@@ -32,8 +30,11 @@
         <a class="nav-link" href="/">Trang chủ<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-		  <a class="nav-link" href="{{ url_for('post.novels_list') }}">Novel</a>
+		  <a class="nav-link" href="{{ url_for('post.novels_list') }}">Tiểu Thuyết</a>
       </li>
+	  <li class="nav-item">
+		  <a class="nav-link" href="{{ url_for('post.novel_write') }}">Sáng Tác</a>
+	  </li>
 
 	</ul>
     <form class="form-inline my-2 my-md-0">
@@ -53,7 +54,7 @@
 			<div class="container">
 				<div id="credit" class="row" style="font-size:12px;">
 				<center style="clear:both;width: 100%;color: white;padding: 24px;">
-					<p>YuriNovel trang văn học mạng, cung cấp cộng đồng tiểu thuyết về thể loại bách hợp.<br>Website được xây dựng bởi Tadashi Ringo, vào tháng 10 năm 2020</p>
+					<p>YuriNovel trang văn học mạng, cung cấp cộng đồng tiểu thuyết về thể loại bách hợp. Nhưng bởi  vì đây là trang web mới thành lập, cho nên web cho phép cung cấp đủ thể loại truyện.<br>Website được xây dựng bởi Tadashi Ringo, vào tháng 10 năm 2020</p>
 				</div>
 			</div>
 		</div>

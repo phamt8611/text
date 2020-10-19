@@ -14,17 +14,24 @@ class Post(db.Model):
     title = db.Column(db.String(140))
     slug = db.Column(db.String(140),unique=True)
     body = db.Column(db.Text)
+    authur = db.Column(db.Text)
     created = db.Column(db.DateTime,default=datetime.now())
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.generate_slug()
+        self.generate_authur()
     
     def generate_slug(self):
         if self.title:
             self.slug = slugify(self.title)
         else:
             self.slug = str(int(time()))
+    def generate_authur(self):
+        if self.authur:
+            self.authur = str(self.authur)
+        else:
+            self.authur = str('Tasashi Ringo')
 
     def __repr__(self):
         return f'<Post id: {self.ids}, title: {self.title}'

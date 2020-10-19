@@ -1,1 +1,16 @@
 {% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+
+<div class="card">
+  <div class="card-body">
+	  <h5 class="card-title">{{ post.title }}</h5>
+	  <p class="card-text">{{ post.body }}</p>
+  </div>
+  <div class="card-footer">
+	  <span class="badge badge-danger">{{post.authur}}</span>
+	  <span class="badge badge-primary">Thể Loại</span>
+	  <span class="badge badge-info">Chương()</span>
+  </div>
+</div>
+{% endblock %}
