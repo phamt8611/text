@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Danh Sách Truyện {{ tag.title }}{% endblock %}
+{% block content %}
+<h3>Thể Loại: {{ tag.title }}</h3>
+{% for post in tag.posts %}
+
+{% include 'post/includes/card.html' %}
+
+{% endfor %}
+{% endblock %}

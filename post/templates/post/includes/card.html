@@ -1,0 +1,20 @@
+<div class="card">
+	<div class="card-header">
+		<a href="{{ post.slug }}">
+			<h4 class="card-title">{{ post.title }}</h4></a>
+	</div>
+
+	<div class="media position-relative">
+		<div class="col" style="width: 100%; padding: 0"><right><img style="width:140px;height:160px;bo    x-shadow: 0 0 24px grey;" src="{{post.image}}" onerror="this.src='/default.png'"></right></div>
+		<div class="media-body">
+			<right><p>{{ post.body }}</p></right>
+		</div>
+	</div>
+	<div class="card-footer">
+		<a href="#" class="badge badge-danger">{{ post.authur }}</a>
+		{% for tag in post.tags %}
+		<a href="{{ url_for('post.novel_tags',slug=tag.slug)}}" class="badge badge-primary">{{ tag.title }}</a>
+		{% endfor %}
+		<a href="#" class="badge badge-info">Chương</a>
+	</div>
+</div>

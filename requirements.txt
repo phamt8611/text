@@ -1,4 +1,8 @@
 flask
 gunicorn
 Flask-SQLAlchemy
-wtforms
+flask-migrate
+flask-script
+flask-admin
+flask-security
+email_validator
