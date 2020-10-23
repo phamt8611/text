@@ -23,6 +23,12 @@ roles_users = db.Table('roles_users',
         db.Column('role_id', db.Integer,
             db.ForeignKey('role.id')))
 
+novels_users = db.Table('novels_users',
+        db.Column('user_id', db.Integer,
+            db.ForeignKey('user.id')),
+        db.Column('novel_id',db.Integer,
+            db.ForeignKey('novel.ids')))
+
 
 class Post(db.Model):
     ids = db.Column(db.Integer,primary_key=True)
@@ -38,18 +44,12 @@ class Post(db.Model):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.generate_slug()
-        self.generate_authur()
         self.generate_image()
     def generate_slug(self):
         if self.title:
             self.slug = slugify(self.title)
         else:
             self.slug = str(int(time()))
-    def generate_authur(self):
-        if self.authur:
-            self.authur = str(self.authur)
-        else:
-            self.authur = str('Tasashi Ringo')
     def generate_image(self):
         if self.image:
             self.image = str(self.image)
@@ -59,6 +59,21 @@ class Post(db.Model):
     def __repr__(self):
         return f'<Post id: {self.ids}, title: {self.title}'
 
+class Novel(db.Model):
+    ids = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(140))
+    slug = db.Column(db.String(140),unique=True)
+    content = db.Column(db.Text)
+    authur = db.relationship('User', secondary=novels_users, backref=db.backref('novels'), lazy='dynamic')
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.generate_slug()
+    def generate_slug(self):
+        if self.title:
+            self.slug = slugify(self.title) 
+        else:
+            self.slug = str(int(time()))
 
 
 class Tag(db.Model):
@@ -76,6 +91,7 @@ class Tag(db.Model):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
     email = db.Column(db.String(100),unique=True)
     password = db.Column(db.String(255))
     active = db.Column(db.Boolean)

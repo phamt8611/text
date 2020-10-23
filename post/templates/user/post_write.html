@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Sáng Tác Truyện{% endblock %}
+{% block content %}
+<h1>Sáng Tác Truyện</h1>
+
+
+
+<form action="{{ url_for('post.novel_write') }}" class="was-validated" method="POST">
+	
+	<div class="mb-3">
+		<div class="input-group is-invalid">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="validatedInputGroupPrepend">Tên Truyện:</span>
+			</div>
+			<input type="text" class="form-control is-invalid" name="title" aria-describedby="validatedInputGroupPrepend" required>
+		</div>
+		<div class="invalid-feedback">
+		Vui Lòng Nhập Tên Truyện.
+		</div>
+	</div>
+
+	<div class="form-group">
+      <label for="disabledTextInput"> Tác Giả:</label>
+	  <input class="form-control" name="authur" type="text" placeholder="{{current_user.email}}" readonly>
+    </div>
+
+	<div class="mb-3">
+		<label for="validationTextarea">Giới Thiệu</label>
+		<textarea style="height:250px;" class="form-control is-invalid" name="body" placeholder="Nội dung giới thiệu truyện." required></textarea>
+	</div>
+
+
+	<div class="mb-3">
+		<select name="tag" id="tag" class="custom-select" required>
+			<option value="">Thể Loại...</option>
+			{% for tag in tags %}
+			<option value="{{ tag.title }}>{{ tag.title }}</option>
+			{% endfor %}
+		</select>
+		<div class="invalid-feedback">Vui Lòng Chọn Thể Loại Truyện...</div>
+	</div>
+	
+
+	<button class="btn btn-primary" type="submit">Tạo Truyện</button>
+
+</form>
+
+{% endblock %}

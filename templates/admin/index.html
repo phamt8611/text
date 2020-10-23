@@ -1,0 +1,5 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<h1>{% if current_user.name %}{{current_user.name}}{% else %}{{current_user.email}}{% endif %}</h1>
+{% endblock %}

@@ -19,6 +19,10 @@
 		</div>
 	</div>
 
+	<div class="form-group">
+      <label for="disabledTextInput"> Tác Giả:</label>
+	  <input class="form-control" name="authur" type="text" placeholder="{% if current_user.name %}{{ current_user.name }}{% else %}{{current_user.email}}{% endif %}" readonly>
+    </div>
 
 	<div class="mb-3">
 		<label for="validationTextarea">Giới Thiệu</label>

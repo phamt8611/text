@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Danh Sách Truyện{% endblock %}
+{% block content %}
+<h1>Post</h1>
+{% for post in posts %}
+
+{% include 'post/includes/card.html' %}
+
+{% endfor %}
+{% endblock %}

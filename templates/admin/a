@@ -1,0 +1,78 @@
+{% macro menu_icon(item) -%}
+{% set icon_type = item.get_icon_type() %}
+{%- if icon_type %}
+  {% set icon_value = item.get_icon_value() %}
+  {% if icon_type == 'glyph' %}
+    <i class="{{ icon_value }}"></i>
+  {% elif icon_type == 'fa' %}
+    <i class="fa fa-{{ icon_value }}"></i>
+  {% elif icon_type == 'image' %}
+    <img src="{{ url_for('static', filename=icon_value) }}" alt="menu image">
+  {% elif icon_type == 'image-url' %}
+    <img src="item.icon_value" alt="menu image">
+  {% endif %}
+{% endif %}
+{%- endmacro %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% macro menu(menu_root=None) %}
+{% if menu_root is none %}{% set menu_root = admin_view.admin.menu() %}{% endif %}
+	{%- for item in menu_root %}
+	{% endfor %}
+{% endmacro %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% macro menu_links(links=None) %}
+  {% if links is none %}{% set links = admin_view.admin.menu_links() %}{% endif %}
+  {% for item in links %}
+    {% set class_name = item.get_class_name() %}
+    {% if item.is_accessible() and item.is_visible() %}
+      <li{% if class_name %} class="{{ class_name }}"{% endif %}>
+        <a href="{{ item.get_url() }}">{{ menu_icon(item) }}{{ item.name }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{% macro messages() %}
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, m in messages %}
+        {% if category %}
+        <div class="alert alert-{{ category }}">
+        {% else %}
+        <div class="alert">
+        {% endif %}
+          <a href="javascript:void(0)" class="close" data-dismiss="alert">x</a>
+          {{ m }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+{% endmacro %}
