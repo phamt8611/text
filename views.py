@@ -7,5 +7,6 @@ from models import *
 #Trang Chủ
 @app.route('/')
 def index():
-    return render_template('index.html')
+    novels = Novel.query.all()
+    return render_template('index.html',novels=novels)
 

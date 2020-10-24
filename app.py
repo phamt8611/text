@@ -48,14 +48,11 @@ class AdminView(ModelView):
     def is_accessible(self):
         return current_user.has_role('admin')
 
-    def inaccessible_callback(self, name, **kwargs):
-        # redirect to login page if user doesn't have access
-        return redirect(url_for('seurity.login', next=request.url))
 class NormalView(ModelView):
     def is_accessible(self):
-        return current_user.is_active()
-    def inaccessible_callback(self, name, **kwargs):
-        return redirect(url_for('security.login', next=request.url))
+        return current_user.is_authenticated
+    def not_auth(self):
+        return "Vui lòng đăng nhập"
 
 #Chạy Admin-Panel
 #admin = Admin(app,'Admin',base_template='index.html', template_mode='admin')
