@@ -1,15 +1,16 @@
 {% if security.registerable or security.recoverable or security.confirmable %}
-<h2>{{ _('Menu') }}</h2>
+<h2>{{ _('Lựa chọn khác??') }}</h2>
 <ul>
-  <li><a href="{{ url_for_security('login') }}{% if 'next' in request.args %}?next={{ request.args.next|urlencode }}{% endif %}">{{ _('Login') }}</a></li>
+	<a class="btn btn-primary" href="{{ url_for_security('login') }}{% if 'next' in request.args %}?next={{ request.args.next|urlencode }}{% endif %}">{{ _('Đăng nhập') }}</a>
   {% if security.registerable %}
-  <li><a href="{{ url_for_security('register') }}{% if 'next' in request.args %}?next={{ request.args.next|urlencode }}{% endif %}">{{ _('Register') }}</a><br/></li>
+  <a class="btn btn-primary" href="{{ url_for_security('register') }}{% if 'next' in request.args %}?next={{ request.args.next|urlencode }}{% endif %}">{{ _('Đăng ký') }}</a><br/>
+
   {% endif %}
   {% if security.recoverable %}
-  <li><a href="{{ url_for_security('forgot_password') }}">{{ _('Forgot password') }}</a><br/></li>
+  <a class="btn btn-danger" href="{{ url_for_security('forgot_password') }}">{{ _('Quên mật khẩu') }}</a><br/>
   {% endif %}
   {% if security.confirmable %}
-  <li><a href="{{ url_for_security('send_confirmation') }}">{{ _('Confirm account') }}</a></li>
+  <a class="btn btn-danger" href="{{ url_for_security('send_confirmation') }}">{{ _('Xác nhận tài khoản') }}</a>
   {% endif %}
 </ul>
 {% endif %}

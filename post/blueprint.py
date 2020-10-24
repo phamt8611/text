@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, url_for, redirect
 
-from flask_security import login_required,current_user
+from flask_security import login_required,current_user,user_registered
 
 from models import *
 from app import db

@@ -8,6 +8,9 @@ from flask_script import Manager
 from flask_admin import Admin, AdminIndexView,expose
 from flask_admin.contrib.sqla import ModelView
 
+#Flask_mail
+from flask_mail import Mail
+
 
 from flask_security import SQLAlchemyUserDatastore, Security, current_user
 from config import Config
@@ -23,7 +26,7 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 
 
-
+mail = Mail(app)
 
 
 
@@ -48,6 +51,11 @@ class AdminView(ModelView):
     def inaccessible_callback(self, name, **kwargs):
         # redirect to login page if user doesn't have access
         return redirect(url_for('seurity.login', next=request.url))
+class NormalView(ModelView):
+    def is_accessible(self):
+        return current_user.is_active()
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for('security.login', next=request.url))
 
 #Chạy Admin-Panel
 #admin = Admin(app,'Admin',base_template='index.html', template_mode='admin')
@@ -59,6 +67,8 @@ admin.add_view(AdminView(Novel, db.session))
 admin.add_view(AdminView(Tag, db.session))
 admin.add_view(AdminView(User, db.session))
 admin.add_view(AdminView(Role, db.session))
+
+
 
 
 

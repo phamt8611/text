@@ -5,4 +5,5 @@ flask-migrate
 flask-script
 flask-admin
 flask-security
+flask-mail
 email_validator
