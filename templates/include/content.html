@@ -25,7 +25,7 @@
     var myhostname = location.hostname;
     var authur = "{{ novel.authur[0].name }}"
     document.getElementById("title").innerHTML = title.toUpperCase();
-    document.getElementById("info_novel").innerHTML = "《" + myhostname + "- " + "Văn học mạng Việt Nam" + "- " + "Truyện thể loại: " + "\(" + "..." + "\)" + "- " + "Được viết bởi: " + authur + "》";
+    document.getElementById("info_novel").innerHTML = "《" + myhostname + "- " + "Văn học mạng Việt Nam" + "- " + "Truyện" + title + " thuộc thể loại: " + "\(" + "..." + "\)" + "- " + "Được viết bởi: " + authur + "》";
     document.getElementById("info_title").innerHTML = title.toLowerCase();
 
 </script>
