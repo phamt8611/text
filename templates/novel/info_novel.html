@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ novel.title }}{% endblock %}
+{% block head_css %}
+<style type="text/css">
+p{
+    text-align: left;
+    white-space:pre-line;
+}
+.btn-body{
+    font-size: 14px;
+    padding: 4px 12px;
+    color: #555555;
+    border:1px solid black;
+}
+    </style>
+{% endblock %}
+{% block content %}
+{% include 'include/content.html' %}
+{% endblock %}

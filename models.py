@@ -61,6 +61,7 @@ class Post(db.Model):
 
 class Novel(db.Model):
     ids = db.Column(db.Integer, primary_key=True)
+    image = db.Column(db.Text)
     title = db.Column(db.String(140))
     slug = db.Column(db.String(140),unique=True)
     content = db.Column(db.Text)

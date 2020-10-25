@@ -1,5 +1,3 @@
-{% from "layout.html" import list_novel_views with context %}
-
 {% extends "base.html" %}
 {% block title %}Trang Chủ{% endblock %}
 {% block content %}
@@ -8,9 +6,11 @@
 </div>
 
 <div class="container">
-	<div class="tmc-home-section col rounded-0 rounded-lg shadow-lg shadow-none" style="color:black;font-size:14px;padding:15px; background: #f4ffe3;">
-		<div style="font-size:20px;margin-bottom:20px;">Mới cập nhật &gt;<a href="/?find=&minc=0&sort=update&tag=" style="display: inline-block;color: gray;font-size:12px;float:right;margin-top: 10px;">xem thêm...</a></div>
-
+	<div class="card text-white bg-dark mb-3" style="color:black;font-size:14px;padding:15px; background: #f4ffe3;">
+		<div style="font-size:20px;margin-bottom:20px;">Mới cập nhật<a href="/" style="display: inline-block;color: gray;font-size:12px;float:right;margin-top: 10px;">xem thêm...</a></div>
+        {% for novel in novels %}
+        {% include 'include/card.html' %}
+        {% endfor %}
 	</div>
 </div>
 {% endblock %}
