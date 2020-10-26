@@ -3,10 +3,12 @@
     <div class="container" style="padding-top: 40px"><div class="row"><div class="col" style="width: 100%;min-width: 240px;padding: 0"><center><img class="card-img-top" style="width:200px;height:260px;box-shadow: 0 0 24px grey;" src="{{novel.image}}" onerror="this.src='/default.png'"></center></div></div></div>
 
     <div class="card text-center">
-        <div class="card-header"><h3 id="title" class="card-title text-success">Tiêu đề web</h3></div>
+        <div class="card-header"><h3 id="title" class="card-title text-success"></h3></div>
         <div class="card-body">
-            <b>
-                <p id="info_novel"></p></b><p>{{ novel.content }}</p></div></div>
+            <b><p id="info_novel"></p></b>
+            <p id="myInfoContent" ></p>
+        </div>
+    </div>
     
 
     <div class="card">
@@ -14,7 +16,7 @@
         <div class="card-body">
             <div class="btn-body">Tên truyện: <a href="{{ novel.slug }}" id="info_title"></a>
             </div>
-            <div class="btn-body">Tác giả:{% for authur in novel.authur %}《{{authur.name}}》{% endfor %}</div>
+            <div id="info_authur" class="btn-body"></div>
             <div class="btn-body">Thể loại:</div>
             <div class="btn-body">Thời gian: <a id="time" href="/"></a></div>
         </div>
@@ -24,9 +26,9 @@
     var title = "{{ novel.title }}";
     var myhostname = location.hostname;
     var authur = "{{ novel.authur[0].name }}";
-    var info_novel_var = "《" +     myhostname + "- " + "Văn học mạng Việt Nam" + "- " + "Truyệ    n" + title + " thuộc thể loại: " + "\(" + "..." + "\)" + "-     " + "Được viết bởi: " + authur + "》";
     document.getElementById("title").innerHTML = title.toUpperCase();
-    document.getElementById("info_novel").innerHTML = info_novel_var.toUpperCase();
     document.getElementById("info_title").innerHTML = title.toLowerCase();
-
+    document.getElementById("info_novel").innerHTML = "《" + myhostname + " tiểu thuyết văn học mạng Việt Nam, truyện " + title + ", thuộc thể loại"+ "..."+", được viết bởi " + authur + "》";
+    document.getElementById("info_authur").innerHTML = "Tác giả:"+authur;
+    document.getElementById("myInfoContent").innerHTML = "{{novel.content}}" ;
 </script>
